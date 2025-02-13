@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Valentine's Day</title>
+  <style>
+    p {
+      text-align: center;
+      font-size: 52px;
+      font-family: Candara, Oswald, sans-serif;
+    }
+
+    img {
+      display: block;
+      margin: 0 auto;
+      width: 25%;
+    }
+
+    #button-yes {
+      position: fixed;
+      top: 88%;
+      left: 71%;
+      transform: translate(-50%, -50%);
+      font-size: 20px;
+      padding: 10px 20px;
+      background-color: #ff4081;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    #button-no {
+      position: absolute;
+      left: 32%;
+      top: 78%;
+      font-size: 20px;
+      padding: 10px 20px;
+      background-color: #f44336;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    /* Hide the video initially */
+    #valentine-video {
+      display: none;
+      width: 38%;
+      margin: 20px auto;
+      position: absolute;
+      top: 52%;
+      /* Center vertically */
+      left: 50%;
+      /* Center horizontally */
+      transform: translate(-50%, -50%);
+      /* Adjust for exact centering */
+    }
+
+    /* Move buttons down when video is shown */
+    .video-visible #button-yes,
+    .video-visible #button-no {
+      top: 90%;
+      /* Move buttons down */
+    }
+  </style>
+</head>
+
+<body>
+  <p style="font-size: 35px;"><b>Will you be my Valentine?</b></p>
+  <img src="https://europe1.discourse-cdn.com/figma/original/3X/7/1/7105e9c010b3d1f0ea893ed5ca3bd58e6cec090e.gif"
+    alt="Proposal animation">
+
+  <button id="button-yes">𝘆𝗲𝗮𝗵 💕</button>
+  <button id="button-no">𝘀𝗼𝗿𝗿𝘆</button>
+
+  <!-- Video element (hidden initially) -->
+  <video id="valentine-video" controls autoplay>
+    <source src="thim song.mp4" type="video/mp4">
+    Your browser does not support the video tag.
+  </video>
+
+  <script>
+    const buttonNo = document.getElementById('button-no');
+    let leftPosition = 20;
+
+    // Move the "No" button on hover
+    buttonNo.addEventListener('mouseover', function () {
+      if (leftPosition === 30) {
+        leftPosition = 44;
+      } else {
+        leftPosition = 30;
+      }
+      this.style.left = leftPosition + '%';
+    });
+
+    // Handle "Yeah" button click
+    document.getElementById('button-yes').addEventListener('click', function () {
+      showVideo();
+    });
+
+    // Handle "Sorry" button click
+    document.getElementById('button-no').addEventListener('click', function () {
+      showVideo();
+    });
+
+    function showVideo() {
+      const video = document.getElementById('valentine-video');
+      video.style.display = 'block'; // Show the video
+      video.play(); // Autoplay the video
+
+      // Add a class to the body to adjust button positions
+      document.body.classList.add('video-visible');
+
+      // Show the alert message after a slight delay
+      setTimeout(function () {
+        alert('Oops... I forgot, I already have someone! 🤪');
+      }, 100); // 100ms delay
+    }
+  </script>
+</body>
+
+</html>

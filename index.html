@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Valentine's Day</title>
   <style>
-    /* General styles */
+    /* General Styles */
     body {
       margin: 0;
       padding: 0;
@@ -33,28 +33,23 @@
       border: none;
       border-radius: 5px;
       cursor: pointer;
-      position: fixed;
-      bottom: 20px;
+      margin: 10px;
     }
 
     #button-yes {
       background-color: #ff4081;
       color: white;
-      left: 60%;
-      transform: translateX(-50%);
     }
 
     #button-no {
       background-color: #f44336;
       color: white;
-      left: 40%;
-      transform: translateX(-50%);
     }
 
-    /* Hide the video initially */
+    /* Video Styles */
     #valentine-video {
       display: none;
-      width: 80%;
+      width: 90%;
       max-width: 600px;
       margin: 20px auto;
       position: absolute;
@@ -63,40 +58,38 @@
       transform: translate(-50%, -50%);
     }
 
-    /* Move buttons down when video is shown */
-    .video-visible #button-yes,
-    .video-visible #button-no {
-      bottom: 10px;
-    }
-
-    /* Responsive styles for mobile */
-    @media (max-width: 600px) {
+    /* Responsive Styles */
+    @media (min-width: 768px) {
       p {
-        font-size: 28px;
+        font-size: 52px;
       }
 
       img {
-        width: 80%;
-      }
-
-      #button-yes,
-      #button-no {
-        font-size: 18px;
-        padding: 8px 16px;
-        bottom: 10px;
+        width: 25%;
       }
 
       #button-yes {
-        left: 70%;
+        position: fixed;
+        top: 80%;
+        left: 71%;
+        transform: translate(-50%, -50%);
       }
 
       #button-no {
-        left: 30%;
+        position: absolute;
+        left: 32%;
+        top: 78%;
       }
 
       #valentine-video {
-        width: 90%;
+        width: 50%;
       }
+    }
+
+    /* Move buttons down when video is shown */
+    .video-visible #button-yes,
+    .video-visible #button-no {
+      top: 90%;
     }
   </style>
 </head>
@@ -117,12 +110,12 @@
 
   <script>
     const buttonNo = document.getElementById('button-no');
-    let leftPosition = 30;
+    let leftPosition = 20;
 
     // Move the "No" button on hover
     buttonNo.addEventListener('mouseover', function () {
       if (leftPosition === 30) {
-        leftPosition = 40;
+        leftPosition = 44;
       } else {
         leftPosition = 30;
       }

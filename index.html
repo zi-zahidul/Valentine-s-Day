@@ -6,56 +6,103 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Valentine's Day</title>
   <style>
-    p {
-      text-align: center;
-      font-size: 52px;
+    /* General styles */
+    body {
+      margin: 0;
+      padding: 0;
       font-family: Candara, Oswald, sans-serif;
+      text-align: center;
+    }
+
+    p {
+      font-size: 35px;
+      margin: 20px 0;
     }
 
     img {
       display: block;
       margin: 0 auto;
-      width: 25%;
+      max-width: 100%;
+      height: auto;
+    }
+
+    #button-yes,
+    #button-no {
+      font-size: 20px;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      position: fixed;
+      bottom: 20px;
     }
 
     #button-yes {
-      position: fixed;
-      top: 80%;
-      left: 71%;
-      transform: translate(-50%, -50%);
+      background-color: #ff4081;
+      color: white;
+      left: 60%;
+      transform: translateX(-50%);
     }
 
     #button-no {
-      position: absolute;
-      left: 32%;
-      top: 78%;
+      background-color: #f44336;
+      color: white;
+      left: 40%;
+      transform: translateX(-50%);
     }
 
     /* Hide the video initially */
     #valentine-video {
       display: none;
-      width: 50%;
+      width: 80%;
+      max-width: 600px;
       margin: 20px auto;
       position: absolute;
       top: 50%;
-      /* Center vertically */
       left: 50%;
-      /* Center horizontally */
       transform: translate(-50%, -50%);
-      /* Adjust for exact centering */
     }
 
     /* Move buttons down when video is shown */
     .video-visible #button-yes,
     .video-visible #button-no {
-      top: 90%;
-      /* Move buttons down */
+      bottom: 10px;
+    }
+
+    /* Responsive styles for mobile */
+    @media (max-width: 600px) {
+      p {
+        font-size: 28px;
+      }
+
+      img {
+        width: 80%;
+      }
+
+      #button-yes,
+      #button-no {
+        font-size: 18px;
+        padding: 8px 16px;
+        bottom: 10px;
+      }
+
+      #button-yes {
+        left: 70%;
+      }
+
+      #button-no {
+        left: 30%;
+      }
+
+      #valentine-video {
+        width: 90%;
+      }
     }
   </style>
 </head>
 
 <body>
-  <p style="font-size: 35px;"><b>Will you be my Valentine?</b></p>
+  <p><b>Will you be my Valentine?</b></p>
   <img src="https://europe1.discourse-cdn.com/figma/original/3X/7/1/7105e9c010b3d1f0ea893ed5ca3bd58e6cec090e.gif"
     alt="Proposal animation">
 
@@ -63,19 +110,19 @@
   <button id="button-no">𝘀𝗼𝗿𝗿𝘆</button>
 
   <!-- Video element (hidden initially) -->
-  <video id="valentine-video" controls autoplay>
+  <video id="valentine-video" controls autoplay muted>
     <source src="thim song.mp4" type="video/mp4">
     Your browser does not support the video tag.
   </video>
 
   <script>
     const buttonNo = document.getElementById('button-no');
-    let leftPosition = 20;
+    let leftPosition = 30;
 
     // Move the "No" button on hover
     buttonNo.addEventListener('mouseover', function () {
       if (leftPosition === 30) {
-        leftPosition = 44;
+        leftPosition = 40;
       } else {
         leftPosition = 30;
       }
@@ -102,7 +149,7 @@
 
       // Show the alert message after a slight delay
       setTimeout(function () {
-        alert('𝗢𝗼𝗽𝘀... 𝗜 𝗳𝗼𝗿𝗴𝗼𝘁, 𝗜 𝗮𝗹𝗿𝗲𝗮𝗱𝘆 𝗵𝗮𝘃𝗲 𝘀𝗼𝗺𝗲𝗼𝗻𝗲! 🤪');
+        alert('Oops... I forgot, I already have someone! 🤪');
       }, 100); // 100ms delay
     }
   </script>
